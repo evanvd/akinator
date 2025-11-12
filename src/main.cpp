@@ -18,7 +18,9 @@ int main()
     node2->left = node4;
     node2->right = node3;
     DUMP_TREE(tree, "log/graphviz_file.dot");
+    
     GuessWord(tree.root);
+
     DUMP_TREE(tree, "log/graphviz_file.dot");
     DeleteNode(tree.root);
 }

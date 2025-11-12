@@ -3,3 +3,4 @@
 #include <stdlib.h>
 
 void GuessWord(node_t* name);
+void CreateOption(node_t* name);

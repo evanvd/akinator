@@ -1,6 +1,7 @@
 #include  <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 #include "tree.h"
 
 void InitTree(tree_t* tree)
@@ -20,7 +21,7 @@ void PrintNode(node_t* node)
         PrintNode(node->left);
     }
 
-    printf("%d", node->data);
+    printf("%s", node->data);
 
     if(node->right)
     {
@@ -32,8 +33,15 @@ void PrintNode(node_t* node)
 node_t* CreateNode(char* data)
 {
     node_t* new_node = (node_t*)calloc(1, sizeof(node_t));
-
-    new_node->data = data;
+    
+    // Allocate memory for the string and copy it
+    if(data != NULL) {
+        new_node->data = (char*)malloc(strlen(data) + 1);
+        strcpy(new_node->data, data);
+    } else {
+        new_node->data = NULL;
+    }
+    
     return new_node;
 }
 
@@ -77,6 +85,11 @@ void DeleteNode(node_t* node)
     if (node->right)
     {
         DeleteNode(node->right);
+    }
+    
+    // Free the string data before freeing the node
+    if(node->data != NULL) {
+        free(node->data);
     }
     free(node);
 }
