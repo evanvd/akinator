@@ -1,0 +1,26 @@
+digraph {
+graph [rankdir=TB, splines=polyline, nodesep=0.6];
+node [shape=record, style="filled, rounded", fillcolor="#009b34ff", height=0.8];
+edge [color="#008000", penwidth=1.5, arrowhead = normal];
+node36 [label="{ adr 0x7c23679e0040 | element 10 | {<L> 0x7c23679e0070| <R> 0x7c23679e0100}}"];
+node36:<L>->node37
+node37 [label="{ adr 0x7c23679e0070 | element 5 | {<L> 0x7c23679e00a0| <R> 0x7c23679e00d0}}"];
+node37:<L>->node38
+node38 [label="{ adr 0x7c23679e00a0 | element 3 | {<L> (nil)| <R> (nil)}}"];
+node37:<R>->node39
+node39 [label="{ adr 0x7c23679e00d0 | element 7 | {<L> 0x7c23679e0130| <R> 0x7c23679e0160}}"];
+node39:<L>->node40
+node40 [label="{ adr 0x7c23679e0130 | element 6 | {<L> (nil)| <R> (nil)}}"];
+node39:<R>->node41
+node41 [label="{ adr 0x7c23679e0160 | element 8 | {<L> (nil)| <R> (nil)}}"];
+node36:<R>->node42
+node42 [label="{ adr 0x7c23679e0100 | element 20 | {<L> 0x7c23679e0190| <R> 0x7c23679e01c0}}"];
+node42:<L>->node43
+node43 [label="{ adr 0x7c23679e0190 | element 18 | {<L> 0x7c23679e01f0| <R> 0x7c23679e0220}}"];
+node43:<L>->node44
+node44 [label="{ adr 0x7c23679e01f0 | element 17 | {<L> (nil)| <R> (nil)}}"];
+node43:<R>->node45
+node45 [label="{ adr 0x7c23679e0220 | element 19 | {<L> (nil)| <R> (nil)}}"];
+node42:<R>->node46
+node46 [label="{ adr 0x7c23679e01c0 | element 21 | {<L> (nil)| <R> (nil)}}"];
+}

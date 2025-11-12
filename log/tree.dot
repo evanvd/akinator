@@ -1,0 +1,16 @@
+digraph {
+graph [rankdir=TB, splines=polyline, nodesep=0.6];
+node [shape=record, style="filled", fillcolor="#009b34ff", height=0.8];
+edge [color="#008000", penwidth=1.5, arrowhead = normal];
+node1 [label="{ adr 0x7b7b58600120 | element 10 | {<L> 0x7b7b586000a0| <R> 0x7b7b586000e0}}"];
+node1:<L>->node2
+node2 [label="{ adr 0x7b7b586000a0 | element 5 | {<L> 0x7b7b58600020| <R> 0x7b7b58600060}}"];
+node2:<L>->node3
+node3 [label="{ adr 0x7b7b58600020 | element 3 | {<L> (nil)| <R> (nil)}}"];
+node2:<R>->node4
+node4 [label="{ adr 0x7b7b58600060 | element 7 | {<L> 0x7bab597e0040| <R> (nil)}}"];
+node4:<L>->node5
+node5 [label="{ adr 0x7bab597e0040 | element 6 | {<L> (nil)| <R> (nil)}}"];
+node1:<R>->node6
+node6 [label="{ adr 0x7b7b586000e0 | element 20 | {<L> (nil)| <R> (nil)}}"];
+}
