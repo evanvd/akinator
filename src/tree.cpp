@@ -80,3 +80,10 @@ void DeleteNode(node_t* node)
     }
     free(node);
 }
+
+void DestroyTree(tree_t* tree)
+{
+    fclose(tree->dump_file);
+    DeleteNode(tree->root);
+    free(tree);
+}

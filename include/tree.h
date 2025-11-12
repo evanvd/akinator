@@ -17,9 +17,9 @@ struct tree_t
     node_t* root = NULL;
 };
 
-void InitTree(tree_t* tree, char* root_element);
+void InitTree(tree_t* tree);
 void PrintNode(node_t* node);
 void InsertNode(node_t* node, char* element);
-node_t* CreateNode(int data);
+node_t* CreateNode(char* data);
 void DeleteNode(node_t* node);
 #endif
