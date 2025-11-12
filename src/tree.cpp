@@ -6,7 +6,7 @@
 void InitTree(tree_t* tree)
 {
     tree->dump_file = fopen("dump.html", "w"); //FIXME HARDCODE yeee
-    tree->root  = CreateNode("chto ugodno"); 
+    tree->root  = CreateNode("Животное"); 
 }
 
 void PrintNode(node_t* node)

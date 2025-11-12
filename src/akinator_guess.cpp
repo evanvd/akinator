@@ -1,35 +1,33 @@
 #include "akinator_guess.h"
 #include <string.h>
+#include <assert.h>
 
 void GuessWord(node_t* name)
 {
+    assert(name != NULL);
     printf("%s?\n", name->data);
-    char* user_answer = NULL;
+    char* user_answer = {};
     scanf("%s", user_answer);
-    if (strcmp(user_answer, "yes") == 1)
+    if(strcmp(user_answer, "yes") == 1)
     {
-        if (name->right == NULL)
+        if (name->left == NULL)
         {
-            printf("ХАХАХАХХАХАХ я угадал\n");
-            return;
+            printf("succes\n");
         }
         else
         {
-            GuessWord(name->right);
-            return;
+            GuessWord(name->left);
         }
     }
     else
     {
         if (name->right == NULL)
         {
-            printf("Созадние нового перса\n");
-            return;
+            printf("failed, add new question\n");
         }
         else
         {
             GuessWord(name->right);
-            return;
         }
     }
 }
