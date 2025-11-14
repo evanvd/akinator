@@ -32,19 +32,19 @@ void GuessWord(node_t* name)
         }
     }
 }
-void CreateOption(node_t* node)
+void CreateOption(node_t* wrong_guess)
 {
-    char object_name[256] = {}; 
-    scanf("%255s", object_name);
+    printf("кто это?\n");
+    char new_object[256] = {}; 
+    scanf("%255s", new_object);
 
+    printf("какой отличительный признак у него\n");
     char question[256] = {}; 
-    scanf("%255s", question);
+    scanf("%2555s", question);
 
-    node_t* right_answer = node;
-    node = CreateNode(question); 
-
-    node_t* left_answer = CreateNode(object_name);
     
-    node->left = left_answer;
-    node->right = right_answer;
+    node_t* question_node = CreateNode(question, wrong_guess->parent);
+    wrong_guess->parent = question_node;
+    question_node->left = CreateNode(new_object, question_node);   
+    question_node->right = wrong_guess;              
 }

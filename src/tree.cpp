@@ -7,13 +7,16 @@
 void InitTree(tree_t* tree)
 {
     tree->dump_file = fopen("dump.html", "w"); //FIXME HARDCODE yeee
-    tree->root  = CreateNode("Животное"); 
+    tree->root  = CreateNode("Животное", NULL); 
 }
 
 void PrintNode(node_t* node)
 {
-    if (node == NULL) return;
-    
+    if (node == NULL) 
+    {
+        printf(" nil "); 
+        return;
+    }
     printf("(");
     
     if(node->left)
@@ -30,15 +33,17 @@ void PrintNode(node_t* node)
     printf(")");
 }
 
-node_t* CreateNode(char* data)
+node_t* CreateNode(char* data, node_t* parent)
 {
     node_t* new_node = (node_t*)calloc(1, sizeof(node_t));
-    
-    // Allocate memory for the string and copy it
-    if(data != NULL) {
+    new_node->parent = parent;
+    if(data != NULL)
+    {
         new_node->data = (char*)malloc(strlen(data) + 1);
         strcpy(new_node->data, data);
-    } else {
+    } 
+    else 
+    {
         new_node->data = NULL;
     }
     
@@ -51,7 +56,7 @@ void InsertNode(node_t* root, char* element)
     {
         if(root->left == NULL)
         {
-            root->left = CreateNode(element);
+            root->left = CreateNode(element, root);
             assert(root->left != NULL); // TODO use if here
         }
         else
@@ -64,7 +69,7 @@ void InsertNode(node_t* root, char* element)
 
     if(root->right == NULL)
     {
-        root->right = CreateNode(element);
+        root->right = CreateNode(element, root);
         assert(root->right != NULL);
     }
     else
@@ -86,17 +91,17 @@ void DeleteNode(node_t* node)
     {
         DeleteNode(node->right);
     }
-    
-    // Free the string data before freeing the node
-    if(node->data != NULL) {
-        free(node->data);
-    }
     free(node);
 }
 
 void DestroyTree(tree_t* tree)
 {
-    fclose(tree->dump_file);
-    DeleteNode(tree->root);
-    free(tree);
+    if (tree->dump_file != NULL) 
+    {
+        fclose(tree->dump_file);
+    }
+    if (tree->root != NULL) 
+    {
+        DeleteNode(tree->root);
+    }
 }

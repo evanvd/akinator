@@ -42,7 +42,17 @@ static size_t node_count = 1;
 void PrintNodeToDot(node_t* node, FILE* log_file)
 {
     size_t current_node_id = node_count++;
-    fprintf(log_file, "node%lu [label=\"{ adr %p | %s | {<L> %p| <R> %p}}\"];\n", current_node_id, node, node->data, node->left, node->right);
+    
+    // Check that node and node->data are valid before using them
+    if (node == NULL) return;
+    
+    // Safely print the node, handle NULL data
+    if (node->data != NULL) {
+        fprintf(log_file, "node%lu [label=\"{ adr %p | %s | {<L> %p| <R> %p}}\"];\n", current_node_id, node, node->data, node->left, node->right);
+    } else {
+        fprintf(log_file, "node%lu [label=\"{ adr %p | NULL | {<L> %p| <R> %p}}\"];\n", current_node_id, node, node->left, node->right);
+    }
+    
     if(node->left)
     {
         fprintf(log_file, "node%lu:<L>->node%lu\n", current_node_id, node_count);

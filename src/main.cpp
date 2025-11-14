@@ -9,10 +9,10 @@ int main()
 {
     tree_t tree = {};
     InitTree(&tree);
-    node_t* node1 = CreateNode("Полторашка");
-    node_t* node2 = CreateNode("Лектор");
-    node_t* node4 = CreateNode("Петрович");
-    node_t* node3 = CreateNode("хуй");
+    node_t* node1 = CreateNode("Полторашка", tree.root);
+    node_t* node2 = CreateNode("Лектор", tree.root);
+    node_t* node4 = CreateNode("Петрович", node2);
+    node_t* node3 = CreateNode("хуй", node2);
     tree.root->left = node1;
     tree.root->right = node2;
     node2->left = node4;
@@ -22,5 +22,5 @@ int main()
     GuessWord(tree.root);
 
     DUMP_TREE(tree, "log/graphviz_file.dot");
-    DeleteNode(tree.root);
+    DestroyTree(&tree);
 }

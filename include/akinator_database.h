@@ -10,6 +10,8 @@ struct data_base
 };
 
 void ReadFromFile(char* data);
-node_t* GetNodeFromFile(char* filename);
-void ReadFromFile(char* data, size_t pst);
+tree_t* GetNodeFromFile(char* filename);
+node_t* ReadNode(char* data);
+void WriteTree(tree_t* tree, char* filename);
+void WriteNode(node_t* node, FILE* base_file);
 void CreateOption(node_t* node);
