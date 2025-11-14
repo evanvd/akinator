@@ -2,13 +2,13 @@ digraph {
 graph [rankdir=TB, splines=polyline, nodesep=0.6];
 node [shape=record, style="filled, rounded", fillcolor="#009b34ff", height=0.8];
 edge [color="#008000", penwidth=1.5, arrowhead = normal];
-node1 [label="{ adr 0x7b6b473e0040 | Животное | {<L> 0x7b6b473e00a0| <R> 0x7b6b473e0100}}"];
+node1 [label="{ adr 0x7b75da1e0040 | Животное | {<L> 0x7b75da1e00a0| <R> 0x7b75da1e0100}}"];
 node1:<L>->node2
-node2 [label="{ adr 0x7b6b473e00a0 | Полторашка | {<L> (nil)| <R> (nil)}}"];
+node2 [label="{ adr 0x7b75da1e00a0 | Полторашка | {<L> (nil)| <R> (nil)}}"];
 node1:<R>->node3
-node3 [label="{ adr 0x7b6b473e0100 | Лектор | {<L> 0x7b6b473e0130| <R> 0x7b6b473e0190}}"];
+node3 [label="{ adr 0x7b75da1e0100 | Лектор | {<L> 0x7b75da1e0130| <R> 0x7b75da1e0190}}"];
 node3:<L>->node4
-node4 [label="{ adr 0x7b6b473e0130 | Петрович | {<L> (nil)| <R> (nil)}}"];
+node4 [label="{ adr 0x7b75da1e0130 | Петрович | {<L> (nil)| <R> (nil)}}"];
 node3:<R>->node5
-node5 [label="{ adr 0x7b6b473e0190 | хуй | {<L> (nil)| <R> (nil)}}"];
+node5 [label="{ adr 0x7b75da1e0190 | хуй | {<L> (nil)| <R> (nil)}}"];
 }

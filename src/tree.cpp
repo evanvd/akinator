@@ -18,18 +18,10 @@ void PrintNode(node_t* node)
         return;
     }
     printf("(");
-    
-    if(node->left)
-    {
-        PrintNode(node->left);
-    }
+    PrintNode(node->left);
 
     printf("%s", node->data);
-
-    if(node->right)
-    {
-        PrintNode(node->right);
-    }
+    PrintNode(node->right);
     printf(")");
 }
 

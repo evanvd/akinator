@@ -46,24 +46,22 @@ void WriteTree(tree_t* tree, char* filename)
     data_base base = {};
     base.data_file = fopen(filename,"w");
     WriteNode(tree->root, base.data_file);
+    fclose(base.data_file);
 }
 
 void WriteNode(node_t* node, FILE* base_file)
 {
-    if (node == NULL) return;
-    
+    if (node == NULL) 
+    {
+        fprintf(base_file, " nil "); 
+        return;
+    }
     fprintf(base_file, "(");
+
+    fprintf(base_file, "\"%s\"", node->data);
     
-    if(node->left)
-    {
-        PrintNode(node->left);
-    }
-
-    fprintf(base_file,"%s", node->data);
-
-    if(node->right)
-    {
-        PrintNode(node->right);
-    }
-    fprintf(base_file, ")");
+    WriteNode(node->left, base_file);
+    WriteNode(node->right, base_file);
+    
+    fprintf(base_file,")");
 }
